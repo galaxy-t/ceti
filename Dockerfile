@@ -4,7 +4,7 @@
 #   FROM <image>:<tag>
 #   FROM <image>@<digest>
 # tag或digest是可选的，如果不使用这两个值时，会使用latest版本的基础镜像
-FROM store/oracle/serverjre:8
+FROM java:8
 # MAINTAINER: 维护者信息
 MAINTAINER galaxy-t
 # 指定于外界交互的端口

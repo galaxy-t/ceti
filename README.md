@@ -82,7 +82,7 @@
     
 2. 配置 Docker 环境变量 
 
-    > DOCKER_HOST     tcp://192.168.20.27:2375
+    > DOCKER_HOST     tcp://192.168.0.200:2375
     
 3. 使用 MAVEN 命令将项目打包发布到 Docker
 
@@ -153,14 +153,14 @@
         例如容器内部有一个 WEB 应用使用的 8080 端口，直接运行容器，外部访问这个应用的时候直接使用 宿主机的 IP地址加 8080 端口即可，不需要再单独进行配置，此种方式在小规模部署及测试时使用是最值得推荐的
 
     > 首次启动一个镜像
-      docker run -d -p 8080:8080 a
+      docker run -d -p 8080:8080 ceti
       
     > 首次启动一个镜像并命名（首次启动镜像 a ，并将这个容器命名为 b）
-      docker run -d -p 8889:8889 --name b a
+      docker run -d -p 8889:8889 --name ceti_01 ceti
       
     > 首次启动一个镜像并与宿主机共享网络和文件夹，且具有root权限，共享网络得情况下不需要再进行指定端口
       （将容器的 /logs 文件夹映射到宿主机的 /logs/user 文件夹）
-      docker run -d -v /logs/user:/logs --privileged=true --net=host --name user user
+      docker run -d -v /logs/user:/logs --privileged=true --net=host --name ceti_01 ceti
       
     > 实时查看Docker容器内部的标准输出
       docker logs -f 容器名  
